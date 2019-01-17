@@ -1,0 +1,22 @@
+package com.cybertek.tests;
+
+import com.cybertek.pages.HomePage;
+import com.cybertek.utilities.ConfiderationReader;
+import com.cybertek.utilities.TestBase;
+import org.testng.annotations.Test;
+
+public class LoginTestWithProperties extends TestBase {
+
+    @Test
+    public void readPropertyTest(){
+        driver.get(ConfiderationReader.getProperty("url"));
+
+        HomePage homePage = new HomePage();
+
+        String username = ConfiderationReader.getProperty("username");
+        String password = ConfiderationReader.getProperty("password");
+        homePage.login(username, password);
+
+
+    }
+}
